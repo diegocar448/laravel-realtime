@@ -4,7 +4,10 @@
 
 $this->router->group(['middleware' => 'auth'], function(){
     $this->router->get('chat', 'Chat\ChatController@index')->name('chat');
+    $this->router->get('chat/messages', 'Chat\ChatController@messages');
+
     $this->router->post('chat/message', 'Chat\ChatController@store');
+
 });
 
 
