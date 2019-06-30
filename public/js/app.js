@@ -1716,9 +1716,19 @@ __webpack_require__.r(__webpack_exports__);
     };
   },
   methods: {
+    keydownMessage: function keydownMessage(e) {
+      if (e.keyCode === 13 && !e.shiftKey) {
+        e.preventDefault();
+        this.sendMessage();
+      }
+    },
     sendMessage: function sendMessage() {
+      var _this = this;
+
       this.$store.dispatch('storeMessage', {
         body: this.body
+      }).then(function () {
+        return _this.body = '';
       });
     }
   }
@@ -37034,6 +37044,7 @@ var render = function() {
           attrs: { placeholder: "Sua Mensagem" },
           domProps: { value: _vm.body },
           on: {
+            keydown: _vm.keydownMessage,
             input: function($event) {
               if ($event.target.composing) {
                 return
