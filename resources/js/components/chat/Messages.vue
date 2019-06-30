@@ -1,11 +1,16 @@
 <template>
-    <div>
+    <div class="messages">
         #messages
         <scale-loader 
             :loading="loading" 
             >
         </scale-loader>
 
+        <message 
+            v-for="message in messages" 
+            :key="message.id"
+            :message="message">            
+        </message>
     </div>
 </template>
 
@@ -30,7 +35,12 @@ export default {
         }   
     },
     components:{
-        ScaleLoader
+        ScaleLoader,        
+    },
+    computed:{
+        messages(){
+            return this.$store.state.chat.messages
+        }
     }
 
 }
