@@ -1787,6 +1787,8 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vue_spinner_src_ScaleLoader__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue-spinner/src/ScaleLoader */ "./node_modules/vue-spinner/src/ScaleLoader.vue");
+/* harmony import */ var timers__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! timers */ "./node_modules/timers-browserify/main.js");
+/* harmony import */ var timers__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(timers__WEBPACK_IMPORTED_MODULE_1__);
 //
 //
 //
@@ -1804,6 +1806,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   created: function created() {
@@ -1820,12 +1824,33 @@ __webpack_require__.r(__webpack_exports__);
 
       this.loading = true;
       this.$store.dispatch('loadMessages')["finally"](function () {
-        return _this.loading = false;
+        _this.loading = false;
+
+        _this.scrollMessages();
       });
+    },
+    scrollMessages: function scrollMessages() {
+      var _this2 = this;
+
+      Object(timers__WEBPACK_IMPORTED_MODULE_1__["setTimeout"])(function () {
+        //scroll rolling down da propria altura
+        //this.$refs.messages.scrollTo(0, this.$refs.messages.scrollHeight)
+        _this2.$refs.messages.scroll({
+          top: _this2.$refs.messages.scrollHeight,
+          "let": 0,
+          behavior: 'smooth'
+        });
+      }, 100);
     }
   },
   components: {
     ScaleLoader: vue_spinner_src_ScaleLoader__WEBPACK_IMPORTED_MODULE_0__["default"]
+  },
+  //adicionar um watch para escutar as mudanças das propriedades
+  watch: {
+    messages: function messages() {
+      this.scrollMessages();
+    }
   },
   computed: {
     messages: function messages() {
@@ -38303,7 +38328,7 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c(
     "div",
-    { staticClass: "messages" },
+    { ref: "messages", staticClass: "messages" },
     [
       _vm._v("\n    #messages\n    "),
       _c("scale-loader", { attrs: { loading: _vm.loading } }),

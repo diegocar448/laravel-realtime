@@ -1,5 +1,6 @@
 <template>
-    <div class="messages">
+    <!-- ref do vuejs para scroll rolling down -->
+    <div class="messages" ref="messages">
         #messages
         <scale-loader 
             :loading="loading" 
@@ -17,6 +18,7 @@
 
 <script>
 import ScaleLoader from 'vue-spinner/src/ScaleLoader'
+import { setTimeout } from 'timers';
 
 export default {
     created(){
@@ -31,11 +33,33 @@ export default {
         loadMessage(){
             this.loading = true
             this.$store.dispatch('loadMessages')
-                        .finally(() => this.loading = false)
+                        .finally(() =>{
+                            this.loading = false    
+                            
+                            this.scrollMessages()
+                        })
+        },
+        scrollMessages(){
+            setTimeout(() => {
+                //scroll rolling down da propria altura
+                //this.$refs.messages.scrollTo(0, this.$refs.messages.scrollHeight)
+                this.$refs.messages.scroll({
+                    top: this.$refs.messages.scrollHeight,
+                    let: 0,
+                    behavior: 'smooth'
+                })
+            }, 100)
+            
         }   
     },
     components:{
         ScaleLoader,        
+    },
+    //adicionar um watch para escutar as mudanças das propriedades
+    watch:{
+        messages(){
+            this.scrollMessages()
+        }
     },
     computed:{
         messages(){
