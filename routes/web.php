@@ -2,9 +2,13 @@
 
 
 
+$this->router->group(['middleware' => 'auth'], function(){
+    $this->router->get('chat', 'Chat\ChatController@index')->name('chat');
+    $this->router->post('chat/message', 'Chat\ChatController@store');
+});
 
 
-$this->router->get('chat', 'Chat\ChatController@index')->middleware('auth')->name('chat');
+
 
 
 

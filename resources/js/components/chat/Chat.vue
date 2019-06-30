@@ -2,10 +2,10 @@
     <div>
         <messages></messages>
         <div class="form-group">
-            <textarea class="form-control" placeholder="Sua Mensagem"></textarea>
+            <textarea v-model="body" class="form-control" placeholder="Sua Mensagem"></textarea>
         </div>
         
-        <button class="btn btn-success">Enviar</button>
+        <button @click.prevent="sendMessage" class="btn btn-success">Enviar</button>
     </div>
 </template>
 
@@ -15,7 +15,16 @@
 
 
 export default {
-    
-
+    data(){
+        return{
+            body:''
+        }
+        
+    },
+    methods:{
+        sendMessage (){
+            this.$store.dispatch('storeMessage', {body: this.body})
+        }
+    }
 }
 </script>

@@ -1,3 +1,5 @@
+import Axios from "axios";
+
 export default{
     
     state:{
@@ -7,8 +9,12 @@ export default{
     mutations:{
 
     },
-    action:{
-
+    actions:{
+        storeMessage(context, params){
+            return axios.post('chat/message', params)
+                        .then(response => console.log(response))
+                        .catch(() => console.log('error'))
+        }
     },
     getters:{
         
