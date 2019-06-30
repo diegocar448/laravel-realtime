@@ -27,6 +27,8 @@ export default{
         }
     },
     getters:{
-        
+        messages(state){
+            return _.orderBy(state.messages, 'id', 'asc' )
+        }
     }
 }

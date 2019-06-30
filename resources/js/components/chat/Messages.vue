@@ -39,9 +39,20 @@ export default {
     },
     computed:{
         messages(){
-            return this.$store.state.chat.messages
+            //return this.$store.state.chat.messages
+            return this.$store.getters.messages
         }
     }
 
 }
 </script>
+
+
+<style scoped>
+.messages{
+    height:400px;
+    max-height: 400px;
+    overflow-x:hidden;
+    overflow-y: auto;
+}
+</style>
