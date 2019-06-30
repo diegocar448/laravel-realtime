@@ -9,6 +9,10 @@ export default{
     mutations:{
         LOAD_MESSAGES(state, messages){
             state.messages = messages
+        },
+        ADD_MESSAGE(state, message){
+            //o push para adicionar no final
+            state.messages.push(message)
         }
     },
     actions:{
@@ -18,7 +22,7 @@ export default{
         },
         storeMessage(context, params){
             return axios.post('chat/message', params)
-                        .then(response => console.log(response))
+                        .then(response => context.commit("ADD_MESSAGE", response.data))
                         .catch(() => console.log('error'))
         }
     },

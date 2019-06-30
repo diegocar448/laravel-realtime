@@ -29,9 +29,13 @@ class ChatController extends Controller
 
     public function store(Request $request)
     {
+        $user = auth()->user();
+
         $message = auth()->user()->messages()->create([
             'body' => $request->body
         ]);
+
+        $message['user'] = $user;
 
         return response()->json($message, 201);
     }

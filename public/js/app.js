@@ -52022,6 +52022,10 @@ __webpack_require__.r(__webpack_exports__);
   mutations: {
     LOAD_MESSAGES: function LOAD_MESSAGES(state, messages) {
       state.messages = messages;
+    },
+    ADD_MESSAGE: function ADD_MESSAGE(state, message) {
+      //o push para adicionar no final
+      state.messages.push(message);
     }
   },
   actions: {
@@ -52032,7 +52036,7 @@ __webpack_require__.r(__webpack_exports__);
     },
     storeMessage: function storeMessage(context, params) {
       return axios.post('chat/message', params).then(function (response) {
-        return console.log(response);
+        return context.commit("ADD_MESSAGE", response.data);
       })["catch"](function () {
         return console.log('error');
       });
