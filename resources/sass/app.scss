@@ -6,3 +6,25 @@
 
 // Bootstrap
 @import '~bootstrap/scss/bootstrap';
+
+.navbar-laravel{
+    background-color: #cfbba7;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.04)
+}
+
+.cabecalho {
+    background-color: #e5ddd5 !important;
+    
+}
+
+/* @media (min-width:768px) {
+    .navbar .navbar-default .navbar-fixed-top {
+        background-color: #cfbba7 !important;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04)
+    }
+} */
+body{
+    background: url('/imgs/background.jpg')
+}
+
+

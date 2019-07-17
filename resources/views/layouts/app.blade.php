@@ -20,10 +20,9 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
 <body>
-    <div id="app">
-    
+    <div  id="app">    
 
-        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
+        <nav style="background:#e5ddd5;" class="navbar-laravel navbar navbar-expand-md navbar-light bg-white shadow-sm cabecalho">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
                     {{ config('app.name', 'Laravel') }}
@@ -35,7 +34,12 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav mr-auto">
-                         
+                        <li>
+                            <a class="nav-link" href="{{ route('chat') }}" >CHAT</a>
+                        </li>                        
+                        <li>
+                            <a class="nav-link" href="{{ route('home') }}" >HOME</a>
+                        </li>                        
                     </ul>
 
                     <!-- Right Side Of Navbar -->
