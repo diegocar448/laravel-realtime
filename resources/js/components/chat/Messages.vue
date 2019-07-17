@@ -1,6 +1,6 @@
 <template>
     <!-- ref do vuejs para scroll rolling down -->
-    <div class="messages" ref="messages">
+    <div class="messages scroll" ref="messages">
         #messages
         <scale-loader 
             :loading="loading" 
@@ -78,5 +78,9 @@ export default {
     max-height: 400px;
     overflow-x:hidden;
     overflow-y: auto;
+}
+
+.scroll{
+    padding: 12px 10px;
 }
 </style>

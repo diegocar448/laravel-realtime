@@ -1716,8 +1716,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
@@ -6366,7 +6364,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, "\n.float-left[data-v-08f91694]{\r\n    float:left\n}\r\n    \r\n", ""]);
+exports.push([module.i, "\n.float-left[data-v-08f91694]{\r\n    float:left;\n}\ntextarea[data-v-08f91694]{\r\n    width:700px;\r\n    border-radius:5px;\r\n    border: 1px solid #CCC;\r\n    padding:6px;\r\n    max-width:700px;\r\n    float:left;\n}\nbutton[data-v-08f91694]{\n}\r\n    \r\n", ""]);
 
 // exports
 
@@ -6385,7 +6383,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, "\n.chat-message[data-v-ca0fb00a]{\n    float:left;\n    width:100%;\n    margin:10px 0;\n}\n.chat-info[data-v-ca0fb00a]{\n    float:left;\n    width:100%;\n}\n.chat-info span[data-v-ca0fb00a]{\n    float:right;\n}\n.chat-img[data-v-ca0fb00a]{\n    float:left\n}\n.chat-img img[data-v-ca0fb00a]{\n    max-width: 60px;\n    border-radius:100%;\n    border: 1px solid #FFF;\n}\n.message[data-v-ca0fb00a]{\n    background: #FFF;\n    /* float:left; */\n    padding:10px;\n    border-radius:5px;\n    color:black;\n    position:relative;\n    margin:32px 9px 0 72px;\n}\n.message.owner[data-v-ca0fb00a]{\n    background:#dcf8c6;\n}\n.message[data-v-ca0fb00a]:before{\n    position:absolute; \n    right:100%;\n    top:15px;\n    border: solid transparent;\n    border-right-color:#FFF;\n    content: ' ';\n    height:  0;\n    width: 0;\n    pointer-events: none;\n    border-width:6px;\n    margin-top:-8px;\n}\n.message.owner[data-v-ca0fb00a]:before{\n    border-right-color:#dcf8c6;\n}\n\n\n", ""]);
+exports.push([module.i, "\n.chat-message[data-v-ca0fb00a]{\n    float:left;\n    width:100%;\n    margin:10px 0;\n}\n.chat-info[data-v-ca0fb00a]{\n    float:left;\n    width:100%;\n}\n.chat-info span[data-v-ca0fb00a]{\n    float:right;\n}\n.chat-img[data-v-ca0fb00a]{\n    float:left\n}\n.chat-img img[data-v-ca0fb00a]{\n    max-width: 60px;\n    border-radius:100%;\n    border: 1px solid #FFF;\n}\n.message[data-v-ca0fb00a]{\n    background: #FFF;\n    /* float:left; */\n    padding:12px 10px;\n    border-radius:4px;\n    color:black;\n    position:relative;\n    margin:32px 9px 0 72px;\n}\n.message.owner[data-v-ca0fb00a]{\n    background:#dcf8c6;\n}\n.message[data-v-ca0fb00a]:before{\n    position:absolute; \n    right:100%;\n    top:15px;\n    border: solid transparent;\n    border-right-color:#FFF;\n    content: ' ';\n    height:  0;\n    width: 0;\n    pointer-events: none;\n    border-width:6px;\n    margin-top:-8px;\n}\n.message.owner[data-v-ca0fb00a]:before{\n    border-right-color:#dcf8c6;\n}\n\n\n", ""]);
 
 // exports
 
@@ -6404,7 +6402,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, "\n.messages[data-v-708f0ef0]{\r\n    height:400px;\r\n    max-height: 400px;\r\n    overflow-x:hidden;\r\n    overflow-y: auto;\n}\r\n", ""]);
+exports.push([module.i, "\n.messages[data-v-708f0ef0]{\r\n    height:400px;\r\n    max-height: 400px;\r\n    overflow-x:hidden;\r\n    overflow-y: auto;\n}\n.scroll[data-v-708f0ef0]{\r\n    padding: 12px 10px;\n}\r\n", ""]);
 
 // exports
 
@@ -38285,30 +38283,27 @@ var render = function() {
     [
       _c("messages"),
       _vm._v(" "),
-      _c("div", { staticClass: "form-group" }, [
-        _c("textarea", {
-          directives: [
-            {
-              name: "model",
-              rawName: "v-model",
-              value: _vm.body,
-              expression: "body"
-            }
-          ],
-          staticClass: "form-control",
-          attrs: { placeholder: "Sua Mensagem" },
-          domProps: { value: _vm.body },
-          on: {
-            keydown: _vm.keydownMessage,
-            input: function($event) {
-              if ($event.target.composing) {
-                return
-              }
-              _vm.body = $event.target.value
-            }
+      _c("textarea", {
+        directives: [
+          {
+            name: "model",
+            rawName: "v-model",
+            value: _vm.body,
+            expression: "body"
           }
-        })
-      ]),
+        ],
+        attrs: { placeholder: "Sua Mensagem" },
+        domProps: { value: _vm.body },
+        on: {
+          keydown: _vm.keydownMessage,
+          input: function($event) {
+            if ($event.target.composing) {
+              return
+            }
+            _vm.body = $event.target.value
+          }
+        }
+      }),
       _vm._v(" "),
       _c(
         "button",
@@ -38399,7 +38394,7 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c(
     "div",
-    { ref: "messages", staticClass: "messages" },
+    { ref: "messages", staticClass: "messages scroll" },
     [
       _vm._v("\n    #messages\n    "),
       _c("scale-loader", { attrs: { loading: _vm.loading } }),

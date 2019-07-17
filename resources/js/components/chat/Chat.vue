@@ -1,9 +1,7 @@
 <template>
     <div>
         <messages></messages>
-        <div class="form-group">
-            <textarea @keydown="keydownMessage" v-model="body" class="form-control" placeholder="Sua Mensagem"></textarea>
-        </div>
+        <textarea @keydown="keydownMessage" v-model="body" class="" placeholder="Sua Mensagem"></textarea>
         
         <button :disabled="loading" @click.prevent="sendMessage" class="btn btn-success">
             <pulse-loader 
@@ -67,7 +65,21 @@ export default {
 <style scoped>
 
 .float-left{
-    float:left
+    float:left;
+
+}
+
+textarea{
+    width:700px;
+    border-radius:5px;
+    border: 1px solid #CCC;
+    padding:6px;
+    max-width:700px;
+    float:left;
+}
+
+button{
+
 }
     
 </style>

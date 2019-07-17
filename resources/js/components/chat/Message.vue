@@ -46,8 +46,8 @@ export default {
     .message{
         background: #FFF;
         /* float:left; */
-        padding:10px;
-        border-radius:5px;
+        padding:12px 10px;
+        border-radius:4px;
         color:black;
         position:relative;
         margin:32px 9px 0 72px;
