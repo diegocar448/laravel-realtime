@@ -1779,6 +1779,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ['message']
 });
@@ -6384,7 +6385,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, "\n.chat-message[data-v-ca0fb00a]{\n    float:left;\n    width:100%;\n    margin:10px 0;\n}\n.chat-info[data-v-ca0fb00a]{\n    float:left;\n    width:100%;\n}\n.chat-img[data-v-ca0fb00a]{\n    float:left\n}\n.chat-img img[data-v-ca0fb00a]{\n    max-width: 60px;\n    border-radius:100%;\n    border: 1px solid #FFF;\n}\n.message[data-v-ca0fb00a]{\n    background: #FFF;\n    float:left;\n    padding:10px;\n    border-radius:5px;\n    color:black;\n    position:relative;\n    margin:10px 14px 0 8px;\n}\n", ""]);
+exports.push([module.i, "\n.chat-message[data-v-ca0fb00a]{\n    float:left;\n    width:100%;\n    margin:10px 0;\n}\n.chat-info[data-v-ca0fb00a]{\n    float:left;\n    width:100%;\n}\n.chat-info span[data-v-ca0fb00a]{\n    float:right;\n}\n.chat-img[data-v-ca0fb00a]{\n    float:left\n}\n.chat-img img[data-v-ca0fb00a]{\n    max-width: 60px;\n    border-radius:100%;\n    border: 1px solid #FFF;\n}\n.message[data-v-ca0fb00a]{\n    background: #FFF;\n    /* float:left; */\n    padding:10px;\n    border-radius:5px;\n    color:black;\n    position:relative;\n    margin:32px 9px 0 72px;\n}\n.message.owner[data-v-ca0fb00a]{\n    background:#dcf8c6;\n}\n.message[data-v-ca0fb00a]:before{\n    position:absolute; \n    right:100%;\n    top:15px;\n    border: solid transparent;\n    border-right-color:#FFF;\n    content: ' ';\n    height:  0;\n    width: 0;\n    pointer-events: none;\n    border-width:6px;\n    margin-top:-8px;\n}\n.message.owner[data-v-ca0fb00a]:before{\n    border-right-color:#dcf8c6;\n}\n\n\n", ""]);
 
 // exports
 
@@ -38358,13 +38359,9 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "chat-message" }, [
     _c("div", { staticClass: "chat-info" }, [
-      _vm._v(
-        "\n        " +
-          _vm._s(_vm.message.user.name) +
-          " " +
-          _vm._s(_vm.message.user.created_at) +
-          "\n    "
-      )
+      _c("b", [_vm._v(_vm._s(_vm.message.user.name))]),
+      _vm._v(" "),
+      _c("span", [_vm._v(_vm._s(_vm.message.user.created_at))])
     ]),
     _vm._v(" "),
     _c("div", { staticClass: "chat-img" }, [
@@ -38373,7 +38370,7 @@ var render = function() {
       })
     ]),
     _vm._v(" "),
-    _c("div", { staticClass: "message" }, [
+    _c("div", { staticClass: "message owner" }, [
       _vm._v("\n        " + _vm._s(_vm.message.body) + "\n    ")
     ])
   ])

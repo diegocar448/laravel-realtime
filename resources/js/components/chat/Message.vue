@@ -1,12 +1,13 @@
 <template>
     <div class="chat-message">
         <div class="chat-info">
-            {{message.user.name}} {{message.user.created_at}}
+            <b>{{message.user.name}}</b> 
+            <span>{{message.user.created_at}}</span>
         </div>
         <div class="chat-img">
             <img src="/imgs/no-image.png" :alt="message.user.name">
         </div>
-        <div class="message">
+        <div class="message owner">
             {{message.body}}
         </div>        
     </div>
@@ -29,6 +30,10 @@ export default {
     .chat-info{
         float:left;
         width:100%;     
+    } 
+    .chat-info span{
+        float:right;
+        
     }
     .chat-img{
         float:left
@@ -40,11 +45,32 @@ export default {
     }
     .message{
         background: #FFF;
-        float:left;
+        /* float:left; */
         padding:10px;
         border-radius:5px;
         color:black;
         position:relative;
-        margin:10px 14px 0 8px;
+        margin:32px 9px 0 72px;
     }
+    .message.owner{
+        background:#dcf8c6;
+    }
+    .message:before{
+        position:absolute; 
+        right:100%;
+        top:15px;
+        border: solid transparent;
+        border-right-color:#FFF;
+        content: ' ';
+        height:  0;
+        width: 0;
+        pointer-events: none;
+        border-width:6px;
+        margin-top:-8px;
+    }
+    .message.owner:before{
+        border-right-color:#dcf8c6;
+    }
+
+    
 </style>
