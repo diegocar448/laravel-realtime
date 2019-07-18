@@ -8,6 +8,8 @@ $this->router->group(['middleware' => 'auth'], function(){
 
     $this->router->post('chat/message', 'Chat\ChatController@store');
 
+    $this->router->get('meu-perfil', 'User\UserController@profile')->name('profile');
+
 });
 
 
