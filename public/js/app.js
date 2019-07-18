@@ -38356,7 +38356,7 @@ var render = function() {
     _c("div", { staticClass: "chat-info" }, [
       _c("b", [_vm._v(_vm._s(_vm.message.user.name))]),
       _vm._v(" "),
-      _c("span", [_vm._v(_vm._s(_vm.message.user.created_at))])
+      _c("span", [_vm._v(_vm._s(_vm.message.created_at))])
     ]),
     _vm._v(" "),
     _c("div", { staticClass: "chat-img" }, [

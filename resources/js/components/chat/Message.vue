@@ -2,12 +2,12 @@
     <div class="chat-message">
         <div class="chat-info">
             <b>{{message.user.name}}</b> 
-            <span>{{message.user.created_at}}</span>
+            <span>{{message.created_at}}</span>
         </div>
         <div class="chat-img">
             <img src="/imgs/no-image.png" :alt="message.user.name">
         </div>
-        <div :class="['message', {'owner' : message.owner}]">
+        <div :class="['message', {'owner' : message.owner   }]">
             {{message.body}}
         </div>        
     </div>

@@ -4,6 +4,8 @@ namespace App\Models\Chat;
 
 use Illuminate\Database\Eloquent\Model;
 use App\Models\User;
+use Carbon\Carbon;
+
 
 class Message extends Model
 {
@@ -13,6 +15,12 @@ class Message extends Model
     public function getOwnerAttribute()
     {
         return $this->user_id == auth()->user()->id;
+    }
+
+    public function getCreatedAtAttribute($value)
+    {
+        return Carbon::parse($value)->format('d/m/Y H:i');
+        
     }
 
     public function user()
