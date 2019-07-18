@@ -79,7 +79,7 @@ textarea{
 }
 
 button{
-
+    margin:12px 6px;
 }
     
 </style>

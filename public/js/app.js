@@ -6364,7 +6364,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, "\n.float-left[data-v-08f91694]{\r\n    float:left;\n}\ntextarea[data-v-08f91694]{\r\n    width:700px;\r\n    border-radius:5px;\r\n    border: 1px solid #CCC;\r\n    padding:6px;\r\n    max-width:700px;\r\n    float:left;\n}\nbutton[data-v-08f91694]{\n}\r\n    \r\n", ""]);
+exports.push([module.i, "\n.float-left[data-v-08f91694]{\r\n    float:left;\n}\ntextarea[data-v-08f91694]{\r\n    width:700px;\r\n    border-radius:5px;\r\n    border: 1px solid #CCC;\r\n    padding:6px;\r\n    max-width:700px;\r\n    float:left;\n}\nbutton[data-v-08f91694]{\r\n    margin:12px 6px;\n}\r\n    \r\n", ""]);
 
 // exports
 
@@ -6402,7 +6402,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, "\n.messages[data-v-708f0ef0]{\r\n    height:400px;\r\n    max-height: 400px;\r\n    overflow-x:hidden;\r\n    overflow-y: auto;\n}\n.scroll[data-v-708f0ef0]{\r\n    padding: 12px 10px;\n}\r\n", ""]);
+exports.push([module.i, "\n.messages[data-v-708f0ef0]{\r\n    height:400px;\r\n    max-height: 400px;\r\n    overflow-x:hidden;\r\n    overflow-y: auto;\n}\n.scroll[data-v-708f0ef0]::-webkit-scrollbal-track{\r\n    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);\r\n    border-radius: 10px;\r\n    background-color: #F5F5F5;\n}\n.scroll[data-v-708f0ef0]::-webkit-scrollbar{\r\n    width:12px;\r\n    background-color:#F5F5F5;\n}\n.scroll[data-v-708f0ef0]::-webkit-scrollbar-thumb{\r\n    border-radius:10px;\r\n    -webkit-box-shadow:inset 0 0 6px rgba(0,0,0,0.3);\r\n    background-color:#D62929;\n}\r\n\r\n/* .scroll{\r\n    padding: 12px 10px;\r\n} */\r\n", ""]);
 
 // exports
 
