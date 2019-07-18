@@ -38365,7 +38365,7 @@ var render = function() {
       })
     ]),
     _vm._v(" "),
-    _c("div", { staticClass: "message owner" }, [
+    _c("div", { class: ["message", { owner: _vm.message.owner }] }, [
       _vm._v("\n        " + _vm._s(_vm.message.body) + "\n    ")
     ])
   ])
