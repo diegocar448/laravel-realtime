@@ -8,7 +8,14 @@
                 <div class="card-header">Meu Perfil</div>
 
                 <div class="card-body">
-                    <form method="POST" action="{{ route('login') }}">
+                    @if(session('success'))
+                        <div class="alert alert-success">
+                            {{ session('success') }}
+                        </div>
+                    @endif
+
+
+                    <form method="POST" action="{{ route('profile.update') }}" enctype="multipart/form-data">
                         @csrf
 
                         <div class="form-group row">
@@ -31,7 +38,7 @@
                             <label for="password" class="col-md-4 col-form-label text-md-right">Senha</label>
 
                             <div class="col-md-6">
-                                <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
+                                <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password"  autocomplete="current-password">
 
                                 @error('password')
                                     <span class="invalid-feedback" role="alert">
@@ -45,7 +52,7 @@
                             <label for="image" class="col-md-4 col-form-label text-md-right">Imagem</label>
 
                             <div class="col-md-6">
-                                <input id="image" type="file" class="form-control @error('image') is-invalid @enderror" name="image" required autocomplete="image">
+                                <input id="image" type="file" class="form-control @error('image') is-invalid @enderror" name="image" autocomplete="image" >
 
                                 @error('image')
                                     <span class="invalid-feedback" role="alert">
