@@ -1778,6 +1778,9 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ['message']
 });
@@ -38443,11 +38446,20 @@ var render = function() {
       _c("span", [_vm._v(_vm._s(_vm.message.created_at))])
     ]),
     _vm._v(" "),
-    _c("div", { staticClass: "chat-img" }, [
-      _c("img", {
-        attrs: { src: "/imgs/no-image.png", alt: _vm.message.user.name }
-      })
-    ]),
+    _vm.message.user.image
+      ? _c("div", { staticClass: "chat-img" }, [
+          _c("img", {
+            attrs: {
+              src: "/storage/users/" + _vm.message.user.image,
+              alt: _vm.message.user.name
+            }
+          })
+        ])
+      : _c("div", { staticClass: "chat-img" }, [
+          _c("img", {
+            attrs: { src: "/imgs/no-image.png", alt: _vm.message.user.name }
+          })
+        ]),
     _vm._v(" "),
     _c("div", { class: ["message", { owner: _vm.message.owner }] }, [
       _vm._v("\n        " + _vm._s(_vm.message.body) + "\n    ")
