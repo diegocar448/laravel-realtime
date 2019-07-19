@@ -5,6 +5,8 @@ namespace App\Http\Controllers\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\User;
+use Illuminate\Support\Facades\Storage;
+
 
 
 class UserController extends Controller
@@ -41,6 +43,17 @@ class UserController extends Controller
         //verificar se a pessoa estao enviando uma imagem
         if($request->hasFile('image') && $request->file('image')->isValid())
         {
+
+            
+            if($user->image && Storage::exists("users/{$user->image}")) 
+            {
+                Storage::delete("users/{$user->image}");
+            }
+            
+
+
+            
+
             //dd($request->image);
             $name = kebab_case($request->name).uniqid($user->id); //diego-cardoso
 
