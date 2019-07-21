@@ -15,23 +15,27 @@
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
+    
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <!-- =================================================================================================  -->
     <!-- usando help config laravel para centralizar parametros do pusher  -->
     <!-- =================================================================================================  -->
-    
     <script>
+        
         window.Laravel = {!! json_encode([
            'csrf'   =>  csrf_token(),
            'pusher'   => [
                'key' => config('broadcasting.connections.pusher.key'),
-               'cluster' => config('broadcasting.connections.pusher.options.cluster'),
+               'cluster' => config('broadcasting.connections.pusher.options.cluster')
            ]
         ]) !!}
     </script>
+    
+    
 </head>
+
 <body>
     <div  id="app">    
 

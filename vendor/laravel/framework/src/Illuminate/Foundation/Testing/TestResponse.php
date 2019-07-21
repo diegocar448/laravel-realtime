@@ -8,6 +8,7 @@ use Illuminate\Support\Str;
 use Illuminate\Support\Carbon;
 use Illuminate\Contracts\View\View;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Traits\Tappable;
 use Illuminate\Support\Traits\Macroable;
 use Illuminate\Foundation\Testing\Assert as PHPUnit;
 use Symfony\Component\HttpFoundation\StreamedResponse;
@@ -18,7 +19,7 @@ use Illuminate\Foundation\Testing\Constraints\SeeInOrder;
  */
 class TestResponse
 {
-    use Macroable {
+    use Tappable, Macroable {
         __call as macroCall;
     }
 
@@ -697,6 +698,12 @@ class TestResponse
      */
     public function assertJsonMissingValidationErrors($keys = null)
     {
+        if ($this->getContent() === '') {
+            PHPUnit::assertTrue(true);
+
+            return $this;
+        }
+
         $json = $this->json();
 
         if (! array_key_exists('errors', $json)) {
@@ -787,13 +794,13 @@ class TestResponse
         $this->ensureResponseHasView();
 
         if (is_null($value)) {
-            PHPUnit::assertArrayHasKey($key, $this->original->getData());
+            PHPUnit::assertArrayHasKey($key, $this->original->gatherData());
         } elseif ($value instanceof Closure) {
-            PHPUnit::assertTrue($value($this->original->getData()[$key]));
+            PHPUnit::assertTrue($value($this->original->gatherData()[$key]));
         } elseif ($value instanceof Model) {
-            PHPUnit::assertTrue($value->is($this->original->getData()[$key]));
+            PHPUnit::assertTrue($value->is($this->original->gatherData()[$key]));
         } else {
-            PHPUnit::assertEquals($value, $this->original->getData()[$key]);
+            PHPUnit::assertEquals($value, $this->original->gatherData()[$key]);
         }
 
         return $this;
@@ -828,7 +835,7 @@ class TestResponse
     {
         $this->ensureResponseHasView();
 
-        return $this->original->getData()[$key];
+        return $this->original->gatherData()[$key];
     }
 
     /**
@@ -841,7 +848,7 @@ class TestResponse
     {
         $this->ensureResponseHasView();
 
-        PHPUnit::assertArrayNotHasKey($key, $this->original->getData());
+        PHPUnit::assertArrayNotHasKey($key, $this->original->gatherData());
 
         return $this;
     }
@@ -1036,7 +1043,7 @@ class TestResponse
     /**
      * Dump the content from the response.
      *
-     * @return void
+     * @return $this
      */
     public function dump()
     {
@@ -1048,17 +1055,21 @@ class TestResponse
             $content = $json;
         }
 
-        dd($content);
+        dump($content);
+
+        return $this;
     }
 
     /**
      * Dump the headers from the response.
      *
-     * @return void
+     * @return $this
      */
     public function dumpHeaders()
     {
-        dd($this->headers->all());
+        dump($this->headers->all());
+
+        return $this;
     }
 
     /**

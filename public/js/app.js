@@ -48604,7 +48604,7 @@ var render = function() {
       ? _c("div", { staticClass: "chat-img" }, [
           _c("img", {
             attrs: {
-              src: "/storage/users/" + _vm.message.user.image,
+              src: "storage/users/" + _vm.message.user.image,
               alt: _vm.message.user.name
             }
           })
@@ -62090,7 +62090,7 @@ var app = new Vue({
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* WEBPACK VAR INJECTION */(function(process) {/* harmony import */ var laravel_echo__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! laravel-echo */ "./node_modules/laravel-echo/dist/echo.js");
+/* harmony import */ var laravel_echo__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! laravel-echo */ "./node_modules/laravel-echo/dist/echo.js");
 window._ = __webpack_require__(/*! lodash */ "./node_modules/lodash/lodash.js");
 /**
  * We'll load jQuery and the Bootstrap jQuery plugin which provides support
@@ -62137,11 +62137,14 @@ if (token) {
 window.Pusher = __webpack_require__(/*! pusher-js */ "./node_modules/pusher-js/dist/web/pusher.js");
 window.Echo = new laravel_echo__WEBPACK_IMPORTED_MODULE_0__["default"]({
   broadcaster: 'pusher',
-  key: process.env.MIX_PUSHER_APP_KEY,
-  cluster: process.env.MIX_PUSHER_APP_CLUSTER,
+  //key: process.env.MIX_PUSHER_APP_KEY,
+  //key: "5aa924f7e58b4d93ab77",     
+  key: Laravel.pusher.key,
+  //cluster: process.env.MIX_PUSHER_APP_CLUSTER,
+  //cluster: "us2",
+  cluster: Laravel.pusher.cluster,
   encrypted: true
 });
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./../../node_modules/process/browser.js */ "./node_modules/process/browser.js")))
 
 /***/ }),
 
@@ -62586,8 +62589,8 @@ var store = new vuex__WEBPACK_IMPORTED_MODULE_1__["default"].Store({
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\laragon\www\laravel-realtime\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\laragon\www\laravel-realtime\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\Docker\laravel-realtime\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\Docker\laravel-realtime\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })
