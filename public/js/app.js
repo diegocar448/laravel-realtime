@@ -62052,6 +62052,28 @@ module.exports = function(module) {
 
 /***/ }),
 
+/***/ "./resources/js/Echo.js":
+/*!******************************!*\
+  !*** ./resources/js/Echo.js ***!
+  \******************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+//import Echo from "laravel-echo";
+Echo.join('chat').here(function (users) {
+  console.log('here');
+  console.log(users); //todos usuarios que estao usando o chat
+}).joining(function (user) {
+  console.log('joinig');
+  console.log(user); //quem acabou de entrar no chat e atualiza o join
+}).leaving(function (user) {
+  //quem saiu do chat
+  console.log('leaving');
+  console.log(user);
+});
+
+/***/ }),
+
 /***/ "./resources/js/app.js":
 /*!*****************************!*\
   !*** ./resources/js/app.js ***!
@@ -62145,6 +62167,8 @@ window.Echo = new laravel_echo__WEBPACK_IMPORTED_MODULE_0__["default"]({
   cluster: Laravel.pusher.cluster,
   encrypted: true
 });
+
+__webpack_require__(/*! ./Echo */ "./resources/js/Echo.js");
 
 /***/ }),
 
