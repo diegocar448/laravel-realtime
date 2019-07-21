@@ -3,11 +3,14 @@
         <h3>{{ users.length }} online</h3>
 
         <div class="users scroll">
-            <div class="user" v-for="user in 10" :key="user">
-                <div class="user-img">
+            <div class="user" v-for="user in users" :key="user.id">
+                <div class="user-img" v-if="user.image">
+                    <img :src="`/storage/users/${user.image}`" alt="">
+                </div>
+                <div class="user-img" v-else>
                     <img src="/imgs/no-image.png" alt="">
                 </div>
-                <strong>Nome User</strong>
+                <strong v-text="user.name"></strong>
             </div>
         </div>
     </div>
@@ -18,7 +21,7 @@ export default {
     computed:{
         //para retornar todos os usuarios logados
         users(){
-            return [];
+            return this.$store.state.chat.users;
         }
     }
 }

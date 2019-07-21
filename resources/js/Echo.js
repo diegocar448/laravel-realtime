@@ -1,7 +1,9 @@
 //import Echo from "laravel-echo";
+import store from "./store/store";
 
 Echo.join('chat')
     .here(users => {
+        store.commit('LOAD_USERS', users)
         console.log('here')
         console.log(users) //todos usuarios que estao usando o chat
     })

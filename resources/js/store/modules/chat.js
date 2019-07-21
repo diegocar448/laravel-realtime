@@ -13,6 +13,9 @@ export default{
         ADD_MESSAGE(state, message){
             //o push para adicionar no final
             state.messages.push(message)
+        },
+        LOAD_USERS(state, users){
+            state.users = users
         }
     },
     actions:{

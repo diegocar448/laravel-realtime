@@ -1896,11 +1896,14 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   computed: {
     //para retornar todos os usuarios logados
     users: function users() {
-      return [];
+      return this.$store.state.chat.users;
     }
   }
 });
@@ -48684,27 +48687,26 @@ var render = function() {
     _c(
       "div",
       { staticClass: "users scroll" },
-      _vm._l(10, function(user) {
-        return _c("div", { key: user, staticClass: "user" }, [
-          _vm._m(0, true),
+      _vm._l(_vm.users, function(user) {
+        return _c("div", { key: user.id, staticClass: "user" }, [
+          user.image
+            ? _c("div", { staticClass: "user-img" }, [
+                _c("img", {
+                  attrs: { src: "/storage/users/" + user.image, alt: "" }
+                })
+              ])
+            : _c("div", { staticClass: "user-img" }, [
+                _c("img", { attrs: { src: "/imgs/no-image.png", alt: "" } })
+              ]),
           _vm._v(" "),
-          _c("strong", [_vm._v("Nome User")])
+          _c("strong", { domProps: { textContent: _vm._s(user.name) } })
         ])
       }),
       0
     )
   ])
 }
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "user-img" }, [
-      _c("img", { attrs: { src: "/imgs/no-image.png", alt: "" } })
-    ])
-  }
-]
+var staticRenderFns = []
 render._withStripped = true
 
 
@@ -62056,11 +62058,16 @@ module.exports = function(module) {
 /*!******************************!*\
   !*** ./resources/js/Echo.js ***!
   \******************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
+/*! no exports provided */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _store_store__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./store/store */ "./resources/js/store/store.js");
 //import Echo from "laravel-echo";
+
 Echo.join('chat').here(function (users) {
+  _store_store__WEBPACK_IMPORTED_MODULE_0__["default"].commit('LOAD_USERS', users);
   console.log('here');
   console.log(users); //todos usuarios que estao usando o chat
 }).joining(function (user) {
@@ -62544,6 +62551,9 @@ __webpack_require__.r(__webpack_exports__);
     ADD_MESSAGE: function ADD_MESSAGE(state, message) {
       //o push para adicionar no final
       state.messages.push(message);
+    },
+    LOAD_USERS: function LOAD_USERS(state, users) {
+      state.users = users;
     }
   },
   actions: {
