@@ -10,8 +10,12 @@ Echo.join('chat')
     .joining(user => {
         console.log('joinig')
         console.log(user)        //quem acabou de entrar no chat e atualiza o join
+
+        store.commit('JOINING_USER', user)
     })      
     .leaving(user => {   //quem saiu do chat
         console.log('leaving')
         console.log(user)
+
+        store.commit('LEAVING_USER', user)
     })            

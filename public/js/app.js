@@ -62073,10 +62073,13 @@ Echo.join('chat').here(function (users) {
 }).joining(function (user) {
   console.log('joinig');
   console.log(user); //quem acabou de entrar no chat e atualiza o join
+
+  _store_store__WEBPACK_IMPORTED_MODULE_0__["default"].commit('JOINING_USER', user);
 }).leaving(function (user) {
   //quem saiu do chat
   console.log('leaving');
   console.log(user);
+  _store_store__WEBPACK_IMPORTED_MODULE_0__["default"].commit('LEAVING_USER', user);
 });
 
 /***/ }),
@@ -62554,6 +62557,14 @@ __webpack_require__.r(__webpack_exports__);
     },
     LOAD_USERS: function LOAD_USERS(state, users) {
       state.users = users;
+    },
+    JOINING_USER: function JOINING_USER(state, user) {
+      state.users.push(user);
+    },
+    LEAVING_USER: function LEAVING_USER(state, user) {
+      state.users = state.users.filter(function (u) {
+        return u.id !== user.id;
+      });
     }
   },
   actions: {
