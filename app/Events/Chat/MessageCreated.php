@@ -29,7 +29,10 @@ class MessageCreated implements ShouldBroadcast
     public function broadcastWith()
     {
         return [
-            'message' => $this->message->load('user')
+            //'message' => $this->message->load('user')
+            'message' => array_merge($this->message->load('user')->toArray(), [
+                'owner'  => false
+            ])
         ];
     }
 
