@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Chat;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\Chat\Message;
+use App\Events\Chat\MessageCreated;
 
 class ChatController extends Controller
 {
@@ -36,6 +37,8 @@ class ChatController extends Controller
         ]);
 
         $message['user'] = $user;
+
+        broadcast(new MessageCreated($message))->toOthers();
 
         return response()->json($message, 201);
     }

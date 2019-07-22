@@ -62064,7 +62064,9 @@ module.exports = function(module) {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _store_store__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./store/store */ "./resources/js/store/store.js");
+/* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
 //import Echo from "laravel-echo";
+
 
 Echo.join('chat').here(function (users) {
   _store_store__WEBPACK_IMPORTED_MODULE_0__["default"].commit('LOAD_USERS', users);
@@ -62080,6 +62082,9 @@ Echo.join('chat').here(function (users) {
   console.log('leaving');
   console.log(user);
   _store_store__WEBPACK_IMPORTED_MODULE_0__["default"].commit('LEAVING_USER', user);
+}).listen('Chat.MessageCreated', function (e) {
+  console.log(e.message);
+  _store_store__WEBPACK_IMPORTED_MODULE_0__["default"].commit('ADD_MESSAGE', e.message);
 });
 
 /***/ }),

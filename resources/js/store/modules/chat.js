@@ -24,7 +24,8 @@ export default{
             state.users = state.users.filter(u => {
                 return u.id !== user.id
             });
-        }
+        },
+        
     },
     actions:{
         loadMessages(context){
